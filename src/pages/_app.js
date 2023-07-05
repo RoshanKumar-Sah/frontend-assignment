@@ -5,7 +5,7 @@ import React from 'react'
 import {
   QueryClient,
   QueryClientProvider,
-  Hydrate,
+  Hydrate
 } from '@tanstack/react-query'
 
 
@@ -23,3 +23,5 @@ export default function App({ Component, pageProps }) {
     </Hydrate>
     </QueryClientProvider>
 }
+
+

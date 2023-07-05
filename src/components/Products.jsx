@@ -9,7 +9,7 @@ const open_sans = Open_Sans({ subsets: ['latin'] })
 
 
 export default function Products({ products }) {
-    console.log(products);
+    // console.log(products);
 
     return (
         <section className="pb-8 pt-16">
@@ -18,7 +18,7 @@ export default function Products({ products }) {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     {
                         products?.map(product => {
-                            return <ProductCard product={product} />
+                            return <ProductCard product={product} key={product.id}/>
                         })
                     }
                 </div>
