@@ -6,6 +6,7 @@ import Header from '@/components/Header'
 const montserrat = Montserrat({ subsets: ['latin'] })
 const open_sans = Open_Sans({ subsets: ['latin'] })
 import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query'
+import Products from '@/components/Products'
 
 
 // let getProducts= ()=>{
@@ -19,15 +20,12 @@ import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query'
 export default function Home(props) {
 
 
-console.log(props.dehydratedState.queries[0]?.state.data);
+// console.log(props.dehydratedState.queries[0]?.state.data);
  let products = props.dehydratedState.queries[0]?.state.data
   return (
   <>
     <Header />
-
-    {
-      JSON.stringify(products)
-    }
+<Products products={products}/>
     </>
   )
 }

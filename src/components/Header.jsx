@@ -2,25 +2,36 @@
 
 import { Montserrat, Open_Sans } from 'next/font/google'
 import Link from 'next/link'
-
+import Hamburger from 'hamburger-react'
+import { useState } from 'react'
+import Nav from './Nav'
 
 const montserrat = Montserrat({ subsets: ['latin'] })
 
 
-export default function Header(){
-    return(
-        <header className='container py-8 flex flex-col gap-4 items-center sm:flex-row sm:justify-between'>
-      <h2 className= {`text-3xl ${montserrat.className} font-bold text-primary after:content-['.'] after:text-secondary after:ml-1`}><Link href={"/"}>Online<span className='text-tertiary'>Store</span></Link></h2>
-   <nav className='sm:w-2/4'>
-    <ul className={`flex items-center py-1 gap-8 uppercase ${montserrat.className} font-medium`}>
-    <li className='hover:text-primary transition duration-150 ease-in-out hover:scale-110 hover:border-b border-primary'>
-      <Link href={"/"}>Home</Link>
-    </li>
-      <li className='hover:text-primary transition duration-150 ease-in-out hover:scale-110 hover:border-b border-primary'>
-      <Link href={"/search"}>Search&nbsp;Page</Link>
-      </li>
-    </ul>
-   </nav>
+export default function Header() {
+
+
+  const [isOpen, setOpen] = useState(false)
+
+
+
+
+  return (
+    <header className='container py-4 flex  gap-4 items-center justify-between'>
+      <h2 className={`text-3xl ${montserrat.className} font-bold text-primary after:content-['.'] after:text-secondary after:ml-1`}><Link href={"/"}>Online<span className='text-tertiary'>Store</span></Link></h2>
+
+      <div className='sm:hidden'>
+        <Hamburger toggled={isOpen} color='#FF851B' toggle={setOpen} />
+      </div>
+
+      {isOpen && <div className="absolute py-4 top-0 left-0 w-1/2  h-screen bg-white/70 border-r px-3 md:hidden">
+        {/* <h2 className= {`text-3xl ${montserrat.className} font-bold text-primary after:content-['.'] after:text-secondary after:ml-1`}><Link href={"/"}>Online<span className='text-tertiary'>Store</span></Link></h2> */}
+        <Nav />
+      </div>}
+
+      <div className="hidden sm:flex  items-center justify-between w-2/4"><Nav /></div>
+
     </header>
-    )
+  )
 }
