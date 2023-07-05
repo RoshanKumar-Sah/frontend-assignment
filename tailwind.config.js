@@ -15,7 +15,14 @@ module.exports = {
       colors:{
         primary: "#FF851B",
         secondary:"#FFDC00",
-        tertiary: "#3D9970"
+        tertiary: "#3D9970",
+        heading1: "#333333",
+        heading2: "#444444",
+        heading3: "#555555",
+        subHeading: "#666666",
+        body: "#777777",
+        caption: "#888888"
+
       }
     },
   },
