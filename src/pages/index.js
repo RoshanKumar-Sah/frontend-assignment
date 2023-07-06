@@ -1,28 +1,17 @@
-import Image from 'next/image'
-import { Montserrat, Open_Sans } from 'next/font/google'
-import Link from 'next/link'
-import Header from '@/components/Header'
-
-const montserrat = Montserrat({ subsets: ['latin'] })
-const open_sans = Open_Sans({ subsets: ['latin'] })
-import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query'
+import { dehydrate, QueryClient } from '@tanstack/react-query'
 import Products from '@/components/Products'
-import Footer from '@/components/Footer'
 
 
 export default function Home(props) {
-
 
   // console.log(props.dehydratedState.queries[0]?.state.data);
   let products = props.dehydratedState.queries[0]?.state.data
   return (
     <>
-      <Header />
       <Products products={products} />
       {
         !products && <div className='h-screen'></div>
       }
-      <Footer />
     </>
   )
 }

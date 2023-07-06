@@ -2,9 +2,8 @@ import { addToCart } from '@/redux/slice/cartSlice'
 import { Montserrat, Open_Sans } from 'next/font/google'
 import Image from 'next/image'
 import Link from 'next/link'
-import { AiFillStar} from "react-icons/ai"
+import { AiFillStar } from "react-icons/ai"
 import { useDispatch } from 'react-redux'
-import {} from "react-icons/ai"
 
 
 const montserrat = Montserrat({ subsets: ['latin'] })

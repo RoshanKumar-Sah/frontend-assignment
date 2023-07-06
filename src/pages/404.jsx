@@ -1,14 +1,11 @@
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
-import { Montserrat, Open_Sans } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 import Link from "next/link";
 
 const montserrat = Montserrat({ subsets: ['latin'] })
-const open_sans = Open_Sans({ subsets: ['latin'] })
 
 export default function Error404() {
     return (<>
-        <Header />
+
         <section className="container pt-16">
             <div className="w-full  h-screen flex gap-8 flex-col justify-center items-center">
                 <h2 className={`${montserrat.className} text-heading1 text-3xl font-bold text-center`}>404 : Resource not Found</h2>
@@ -16,6 +13,6 @@ export default function Error404() {
             </div>
 
         </section>
-        <Footer />
+
     </>)
 }

@@ -1,17 +1,11 @@
 import '@/styles/globals.css'
 
 import React from 'react'
-
-import {
-  QueryClient,
-  QueryClientProvider,
-  Hydrate
-} from '@tanstack/react-query'
-
+import { QueryClient, QueryClientProvider, Hydrate } from '@tanstack/react-query'
 import { Provider } from 'react-redux'
 import store from '../redux/store'
-
-
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
 
 function App({ Component, pageProps }) {
@@ -20,7 +14,9 @@ function App({ Component, pageProps }) {
 
   return <QueryClientProvider client={queryClient}>
     <Hydrate state={pageProps.dehydratedState}>
+      <Header />
       <Component {...pageProps} />
+      <Footer />
     </Hydrate>
   </QueryClientProvider>
 }

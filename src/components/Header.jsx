@@ -1,6 +1,4 @@
-
-
-import { Montserrat, Open_Sans } from 'next/font/google'
+import { Montserrat } from 'next/font/google'
 import Link from 'next/link'
 import Hamburger from 'hamburger-react'
 import { useState } from 'react'
@@ -15,9 +13,6 @@ export default function Header() {
 
   const [isOpen, setOpen] = useState(false)
 
-
-
-
   return (
     <header className='container py-4 flex  gap-4 items-center justify-between fixed z-50 bg-white/50'>
       <h2 className={`text-3xl ${montserrat.className} font-bold text-primary after:content-['.'] after:text-secondary after:ml-1`}><Link href={"/"}>Online<span className='text-tertiary'>Store</span></Link></h2>
@@ -27,7 +22,6 @@ export default function Header() {
       </div>
 
       {isOpen && <div className="absolute py-4 top-0 left-0 w-1/2  h-screen bg-white/70 border-r px-3 sm:hidden">
-        {/* <h2 className= {`text-3xl ${montserrat.className} font-bold text-primary after:content-['.'] after:text-secondary after:ml-1`}><Link href={"/"}>Online<span className='text-tertiary'>Store</span></Link></h2> */}
         <Nav />
       </div>}
 

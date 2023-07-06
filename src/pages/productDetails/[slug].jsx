@@ -1,12 +1,10 @@
-import { dehydrate, QueryClient, useQuery, useQueryClient } from '@tanstack/react-query'
+import { dehydrate, QueryClient } from '@tanstack/react-query'
 import { Montserrat, Open_Sans } from 'next/font/google'
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useDispatch } from 'react-redux'
 import { addToCart } from '@/redux/slice/cartSlice'
-import Footer from "@/components/Footer";
-import Header from "@/components/Header";
 
 
 const montserrat = Montserrat({ subsets: ['latin'] })
@@ -27,11 +25,9 @@ export default function SingleProduct(props) {
         }
     })
 
-
-
     return (
         <>
-            <Header />
+
             <section className="container pt-24">
                 {
                     product && <>
@@ -52,21 +48,17 @@ export default function SingleProduct(props) {
                                     onClick={() => {
                                         dispatch(addToCart(product))
                                     }} >Add&nbsp;to&nbsp;cart</div>
-
                             </div>
                         </div>
                     </>
                 }
-
             </section>
-            <Footer />
         </>
     )
 }
 
 export async function getServerSideProps(ctx) {
     // console.log(ctx.query.slug);
-
 
     const queryClient = new QueryClient()
 
@@ -76,7 +68,6 @@ export async function getServerSideProps(ctx) {
             fetch(`https://fakestoreapi.com/products/${ctx.query.slug}`).then(
                 (res) => res.json(),
             ),
-
     })
 
     return {
