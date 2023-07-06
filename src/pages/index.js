@@ -7,6 +7,7 @@ const montserrat = Montserrat({ subsets: ['latin'] })
 const open_sans = Open_Sans({ subsets: ['latin'] })
 import { dehydrate, QueryClient, useQuery } from '@tanstack/react-query'
 import Products from '@/components/Products'
+import Footer from '@/components/Footer'
 
 
 export default function Home(props) {
@@ -18,6 +19,10 @@ export default function Home(props) {
     <>
       <Header />
       <Products products={products} />
+      {
+        !products && <div className='h-screen'></div>
+      }
+      <Footer />
     </>
   )
 }

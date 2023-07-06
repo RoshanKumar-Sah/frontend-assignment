@@ -1,9 +1,14 @@
-import Header from "@/components/Header";
 import { dehydrate, QueryClient, useQuery, useQueryClient } from '@tanstack/react-query'
 import { Montserrat, Open_Sans } from 'next/font/google'
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
+import { useDispatch } from 'react-redux'
+import { addToCart } from '@/redux/slice/cartSlice'
+import Footer from "@/components/Footer";
+import Header from "@/components/Header";
+
+
 const montserrat = Montserrat({ subsets: ['latin'] })
 const open_sans = Open_Sans({ subsets: ['latin'] })
 
@@ -14,6 +19,7 @@ export default function SingleProduct(props) {
 
     let product = props.dehydratedState.queries[0]?.state.data
     const router = useRouter()
+    const dispatch = useDispatch()
 
     useEffect(() => {
         if (!product) {
@@ -42,7 +48,10 @@ export default function SingleProduct(props) {
                                     <li className={`capitalize ${open_sans.className} w-fit border py-1 px-4 bg-tertiary text-white rounded-2xl`}>{product.category}</li>
                                     <li className="w-full sm:w-3/4"><p>{product.description}</p></li>
                                 </ul>
-                                <div className={`py-1 px-2 mt-8 h-fit w-fit font-medium rounded-md bg-primary text-white border hover:border-primary   hover:bg-white hover:text-primary ${open_sans.className}`}>Add&nbsp;to&nbsp;cart</div>
+                                <div className={`py-1 px-2 mt-8 h-fit w-fit font-medium rounded-md bg-primary text-white border hover:border-primary hover:bg-white hover:text-primary ${open_sans.className} cursor-pointer`}
+                                    onClick={() => {
+                                        dispatch(addToCart(product))
+                                    }} >Add&nbsp;to&nbsp;cart</div>
 
                             </div>
                         </div>
@@ -50,6 +59,7 @@ export default function SingleProduct(props) {
                 }
 
             </section>
+            <Footer />
         </>
     )
 }
