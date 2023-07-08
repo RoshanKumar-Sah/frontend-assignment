@@ -7,12 +7,12 @@ import { useState } from "react";
 const open_sans = Open_Sans({ subsets: ['latin'] })
 
 export default function Search(props) {
-    let fetchedProducts = props.dehydratedState.queries[0]?.state.data
+    let fetchedProducts = props?.dehydratedState?.queries[0]?.state?.data
     //    console.log(fetchedProducts);
 
     let [products, setproducts] = useState([])
 
-    let [space, setSpace] = useState(true)
+    // let [space, setSpace] = useState(true)
 
     let filtered_products = []
     function handleSubmit(event) {
@@ -38,9 +38,9 @@ export default function Search(props) {
                     <input type="text" placeholder="Search Here" onChange={handleSubmit} name="search" className={`w-full sm:w-fit p-1 border-2 outline-none border-primary rounded-md px-4 ${open_sans.className}`} />
                 </form>
 
-                {
-                    !space ? <Products products={products} /> : <div className="h-screen"></div>
-                }
+                
+                     <Products products={products} />
+                
             </section>
 
         </>

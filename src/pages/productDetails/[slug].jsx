@@ -15,7 +15,7 @@ const open_sans = Open_Sans({ subsets: ['latin'] })
 export default function SingleProduct(props) {
     // console.log(props.dehydratedState.queries[0]?.state.data);
 
-    let product = props.dehydratedState.queries[0]?.state.data
+    let product = props?.dehydratedState?.queries[0]?.state?.data
     const router = useRouter()
     const dispatch = useDispatch()
 
